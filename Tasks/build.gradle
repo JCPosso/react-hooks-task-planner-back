@@ -1,12 +1,14 @@
 plugins {
-	id 'org.springframework.boot' version '3.0.0-SNAPSHOT'
+	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'war'
 }
+
 
 group = 'edu.eci.ieti'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
@@ -16,7 +18,10 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'javax.ws.rs:javax.ws.rs-api:2.0'
+	implementation 'javax.ws.rs:javax.ws.rs-api'
+	implementation 'javax.xml.bind:jaxb-api'
 }
 
 tasks.named('test') {

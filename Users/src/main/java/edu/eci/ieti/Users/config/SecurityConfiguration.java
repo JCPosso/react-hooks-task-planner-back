@@ -24,19 +24,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure( HttpSecurity http )
             throws Exception
     {
-        http.addFilterBefore( jwtRequestFilter,
-                        BasicAuthenticationFilter.class )
-                .cors()
-                .and()
-                .csrf()
-                .disable()
+        http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers( HttpMethod.POST, "/v1/auth" )
-                .permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers( HttpMethod.GET, "/v1/user" ).permitAll()
+                .antMatchers( HttpMethod.POST,"/v1/user" ).permitAll()
+                .antMatchers( HttpMethod.POST, "/v1/auth" ).permitAll()
+                .anyRequest().authenticated()
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS );
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS );
     }
 }
