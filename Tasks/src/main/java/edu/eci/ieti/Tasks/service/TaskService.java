@@ -2,6 +2,7 @@ package edu.eci.ieti.Tasks.service;
 
 
 import edu.eci.ieti.Tasks.data.Task;
+import edu.eci.ieti.Tasks.dto.TaskDto;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface TaskService
 
     boolean deleteById( String id );
 
-    Task update(Task task, String id );
+    Task update(TaskDto taskDto, String id );
 }

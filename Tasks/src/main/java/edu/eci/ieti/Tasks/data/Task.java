@@ -2,15 +2,23 @@ package edu.eci.ieti.Tasks.data;
 
 import edu.eci.ieti.Tasks.dto.Status;
 import edu.eci.ieti.Tasks.dto.TaskDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Task {
+    @Id
     private String id;
+
     private String name;
     private String description;
     private Status status;
     private String assignedTo;
     private String dueDate;
     private String created;
+
+    public Task() {}
 
     public Task(String id, TaskDto dto, String created) {
         this.id = id;
