@@ -8,26 +8,25 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class TaskServiceHashMap implements TaskService{
+public class TaskServiceHashMap  {
     private final HashMap<String, Task> tasksHashMap = new HashMap<>();
 
-
-    @Override
+    //@Override
     public Task create(Task task) {
         return tasksHashMap.put(task.getId(), task);
     }
 
-    @Override
+    //@Override
     public Task findById(String id) {
         return tasksHashMap.get(id);
     }
 
-    @Override
+    //@Override
     public List<Task> getAll() {
         return new ArrayList<Task>(tasksHashMap.values());
     }
 
-    @Override
+    //@Override
     public boolean deleteById(String id) {
         try{
             tasksHashMap.remove(id);
@@ -37,7 +36,7 @@ public class TaskServiceHashMap implements TaskService{
         }
     }
 
-    @Override
+    //@Override
     public Task update(Task task, String id) {
         return tasksHashMap.put(id,task);
     }
